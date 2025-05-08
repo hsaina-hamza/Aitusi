@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفخاذ قبيلة أيتوســــى</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Noto Naskh Arabic', serif;
+            color: #333;
+            background-color: #f8f5f0;
+        }
+        
+        .tribe-title {
+            color: #2d4f3c;
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 2rem;
+            border-bottom: 3px solid #8b5e34;
+            padding-bottom: 1rem;
+        }
+        
+        .tribe-heading {
+            color: #5d3a1a;
+            margin-top: 2.5rem;
+            font-size: 1.5rem;
+            background: linear-gradient(to left, #e6d5b8, transparent);
+            padding: 0.75rem 1rem;
+            border-radius: 0.25rem;
+            position: relative;
+        }
+        
+        .tribe-heading::before {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background-color: #8b4513;
+            border-radius: 2px;
+        }
+        
+        .family-heading {
+            color: #7a5c3c;
+            margin-top: 1.5rem;
+            font-size: 1.25rem;
+            padding-right: 0.75rem;
+            border-right: 3px solid #d2b48c;
+            font-weight: 600;
+        }
+        
+        .family-members {
+            margin: 0.75rem 1.25rem 1rem 0;
+            line-height: 1.7;
+            padding-right: 1rem;
+        }
+        
+        .note-container {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: #e6d5b8;
+            border-radius: 0.5rem;
+            border-right: 5px solid #8b4513;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .note-container p {
+            margin: 0.75rem 0;
+            padding: 0;
+        }
+        
+        /* Bootstrap-inspired card system */
+        .tribe-card {
+            border: 1px solid #d2b48c;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            background-color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tribe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tribe-card-header {
+            background-color: #2d4f3c;
+            color: white;
+            padding: 1rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        
+        .tribe-card-body {
+            padding: 1.5rem;
+        }
+        
+        /* Table of contents */
+        .toc {
+            background-color: #f0e6d2;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #d2b48c;
+        }
+        
+        .toc-title {
+            font-size: 1.5rem;
+            color: #5d3a1a;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #8b4513;
+            padding-bottom: 0.5rem;
+        }
+        
+        .toc-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc-list a {
+            color: #2d4f3c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .toc-list a:hover {
+            color: #8b4513;
+            text-decoration: underline;
+        }
+        
+        /* Responsive utilities */
+        @media (max-width: 768px) {
+            .tribe-title {
+                font-size: 1.75rem;
+            }
+            
+            .tribe-heading {
+                font-size: 1.35rem;
+            }
+            
+            .family-heading {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Tailwind CSS -->
+    <header class="bg-gradient-to-b from-green-900 to-green-700 text-white py-10 px-4 shadow-lg">
+        <div class="container mx-auto max-w-6xl">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-3">بسم الله الرحمن الرحيم</h1>
+            <p class="text-center mt-3 text-green-100 text-lg">أفخاذ قبيلة أيتوســــى</p>
+            <div class="flex justify-center mt-6">
+                <div class="h-1 w-24 bg-yellow-500 rounded"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation with Tailwind CSS -->
+    <nav class="bg-green-800 text-white py-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto max-w-6xl flex justify-center items-center flex-wrap gap-8 px-4">
+            <a href="#" class="hover:text-yellow-200 transition duration-300 text-lg font-medium">الرئيسية</a>
+            <a href="#toc" class="hover:text-yellow-200 transition duration-300 text-lg font-medium">فهرس القبائل</a>
+            <a href="#" class="hover:text-yellow-200 transition duration-300 text-lg font-medium">الصور</a>
+            <a href="#" class="hover:text-yellow-200 transition duration-300 text-lg font-medium">تواصل معنا</a>
+        </div>
+    </nav>
+
+    <!-- Main Content with Bootstrap-inspired cards and Tailwind -->
+    <main class="container mx-auto max-w-6xl py-8 px-4">
+        <div class="mb-12 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">أفخاذ قبيلة أيتوســــى</h1>
+            <p class="text-gray-600 max-w-3xl mx-auto">موسوعة شاملة لقبائل وأفخاذ أيتوســــى، تعرض التقسيمات العائلية والانتماءات القبلية بشكل مفصل ومنظم.</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc" id="toc">
+            <h2 class="toc-title">فهرس القبائل</h2>
+            <ul class="toc-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                <li><a href="#tribe-1">قبيلة أيت بوجمع</a></li>
+                <li><a href="#tribe-2">قبيلة أيت ايدر</a></li>
+                <li><a href="#tribe-3">قبيلة إداوتيا</a></li>
+                <li><a href="#tribe-4">قبيلة إمغلاي</a></li>
+                <li><a href="#tribe-5">قبيلة انفاليس</a></li>
+                <li><a href="#tribe-6">قبيلة أيت وعبان</a></li>
+                <li><a href="#tribe-7">قبيلة أهل مسعيد اسعيد</a></li>
+                <li><a href="#tribe-8">قبيلة أهل بوجمع أمسعود</a></li>
+                <li><a href="#tribe-9">قبيلة أهل حمو علي</a></li>
+                <li><a href="#tribe-10">قبيلة أكوارير</a></li>
+                <li><a href="#tribe-11">قبيلة أجواكين</a></li>
+            </ul>
+        </div>
+
+        <!-- Tribe 1 -->
+        <div id="tribe-1" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة أيت بوجمع</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل علي منصور:</h3>
+                    <p class="family-members">ادعيش – شويشا ـ بوسباكا ـ الرباني ـ الخرشي ـ منصور ـ منكور اطويف بلالي مولاي ـ الركيبي ـ أكوـ ادا المعلولي.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل عبد الكريم:</h3>
+                    <p class="family-members">لغزال – لغدال – الترفاس- الرغاي – لمريس- السين – لبكم- بارا- بيبوط- مكرز – كريمز – بنسالم.</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">أهل حمو لمبارك:</h3>
+                    <p class="family-members">الحروشي ـ الزاكي ـ حمشيش ـ بونيت ـ عبيد ـ يابسة ـ ملايخاف ـ الكبش ـ السغير ـ دكوزي ـ الجد ـ امان ـ تمكليت ـ تحموتيت ـ الفال ـ الظالع.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tribe 2 -->
+        <div id="tribe-2" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة أيت ايدر</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">أولاد امحمد:</h3>
+                    <p class="family-members">• أهل حماد : عبد الدايم ـ أوس ـ بودعكات ـ تكني ـ بيناهو.</p>
+                    <p class="family-members">• أهل سعيد : عبد الدايم ـ لطيف ـ مرشيد ـ اليوسي ـ الشجعي ـ عيلا ـ الخريف ـ متوكل ـ كلاع ـ قاسم ـ أبو القاسم.</p>
+                    <p class="family-members">• أهل بوتوميت : بوتوميت ـ شكراد ـ عيوش ـ ناجي ـ زديدات ـ زضيضات - ناصري .</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">أولاد علي:</h3>
+                    <p class="family-members">• اهل علي بلقاسم : بلالي ـ ابدار ـ حبتي ـ لهنا .</p>
+                    <p class="family-members">• أهل الشيهب : الشيهب ـ بوقنطار.</p>
+                    <p class="family-members">• أولاد ابراهيم : أصكام ـ حسينا ـ بوركعة ـ البلي ـ لهنا </p>
+                    <p class="family-members">• أهل عبد السلام :الفردي ـ إيداري ـ حيدارا.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tribe 3 -->
+        <div id="tribe-3" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة إداوتيا</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">إدايوب :</h3>
+                    <p class="family-members">أيوب ـ كيوب ـ بشي ـ التامك ـ حمدون ـ زكواط ـ منصور ـ بوكرين.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">الشراقة :</h3>
+                    <p class="family-members">الشرقي= شراف ـ حران ـ سعيدي ـ جداد ـ الرخاوا.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">لكويدرات :</h3>
+                    <p class="family-members">إكيدر := راح ـ حيدارا ـ الريش = ناجع ـ شركاوي ـ أزيكو.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل بوغراس :</h3>
+                    <p class="family-members">اغراس = بونعمة ـ حيداس ـ هبول ـ بوطلحة ـ ماجيد ـ زكتولي ـ عفن ـ مبروك.</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">أهل عبلا :</h3>
+                    <p class="family-members">الطوير ـ لمرمر ـ حميد ـ عبلا ـ الكنداوي ـ بوسدرة ـ أفريت ـ خشين ـ حسنية ـ الكانا ـ وعا ـ أتراس.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tribe 4 -->
+        <div id="tribe-4" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة إمغلاي</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل الشويعر :</h3>
+                    <p class="family-members">شويعر ـ رحيمي ـ الزعيم ـ الديس ـ العيظاظ.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل يحيى :</h3>
+                    <p class="family-members">يحيى ـ لعور ـ شيشي ـ حيبوط ـ لحرش ـ المومن ـ الكش ـ الرك الكبي ـ تملوكو.</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">أهل بركة أسعيد :</h3>
+                    <p class="family-members">الغزواني ـ بيبي ـ رمزي ـ التريفيس ـ المكاوي ـ ونزا ر ـ بونوارة ـ الحيرش ـ اراح.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tribe 5 -->
+        <div id="tribe-5" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة انفاليس</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل سعيد :</h3>
+                    <p class="family-members">جغاغ ـ سكيح ـ الرماس ـ بن حميد ـ الوردي ـ أسرتي ـ دعنون أمعذور ـ بوشاكوك .</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل بوجريفن :</h3>
+                    <p class="family-members">مريف ـ اجاريف ـ بوركان ـ بوهوش ـ هرواش ـ براك ـ الوردي</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل حماد مبارك :</h3>
+                    <p class="family-members">بيلاو ـ بنشاود ـ لعميم ـ الدبيش ـ الطالبي ـ لعويسيد ـ بنعويس</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل بلا وحماد :</h3>
+                    <p class="family-members">ميسين ـ بوركان ـ بوشان ـ عدي ـ كرير ـ إيزيلي</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">أهل براهيم اعلي :</h3>
+                    <p class="family-members">باها ـ بريك ـ لحويج ـ لمؤدن ـ ميري ـ الزاكي ـ المزكيطي أفيشيل ـ كرواز</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tribe 6 -->
+        <div id="tribe-6" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة أيت وعبان</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل محمد اعلي :</h3>
+                    <p class="family-members">شياهو ـ لكتيف ـ غانم ـ حماد ـ لمغيفر ي ـ إلهين ـ حمو</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل بوكيوض :</h3>
+                    <p class="family-members">بوكيوض ـ جداي ـ عبسى ـ بوعنيس ـ مروان ـ عكيدة ـ لعكيدي ـ باني ـ بوفريوا ـ كزاز ـ بوبرين ـ الراحل</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">أعربات :</h3>
+                    <p class="family-members">سركوح ـ أعربات ـ بوعولتين ـ أوشريح ـ بوروس ـ لمغفيري ـ بلقاسم ـ عبان.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tribe 7 -->
+        <div id="tribe-7" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة أهل مسعيد اسعيد</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل بريهمات :</h3>
+                    <p class="family-members">برزيك ـ وادا ـ فردي ـ جمجي ـ مزين ـ الزماطي ـ بلغيث ـ خباز</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل عبد الرحمان :</h3>
+                    <p class="family-members">واركزيز ـ تيكمارين ـ ليلاط ـ باحا ـ باه ـ أكار ـ الشوين ـ لصفر ـ مشتاق ـ لزرق ـ كدالي ـ أفود ـ شرامها ـ القدمي ـ فيسك ـ حسان</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل حيماد :</h3>
+                    <p class="family-members">أخالن ـ حمدان ـ الشهيد ـ لغيشم ـ الحامد ـ أوبلا ـ الزهار الدكاك ـ بلالي ـ الشلح ـ السحار ـ القدمي ـ عدي ـ مللك الكين ـ مريد</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">أهل بلقاسم :</h3>
+                    <p class="family-members">برزيكو ـ كربيص ـ حمروـ سغير ـ بوركعة ـ هين ـ زيموم ـ كرنوش ـ السبع</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tribe 8 -->
+        <div id="tribe-8" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة أهل بوجمع أمسعود</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل بوجمع أمسعود :</h3>
+                    <p class="family-members">لبيض ـ حمو ـ البادن ـ أزى ـ المستري ـ عبيدي ـ أركاز ـ بوتقلمونت ـ حريش ـ التوتاي ـ خليفة ـ لبر ص ـ خربوش ـ بيور ـ الشيباني ـ لكهل ـ غيلان ـ اغرابو ـ بنيار ـ لفراجى</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أمجاجيط :</h3>
+                    <p class="family-members">لغلا ـ كعاب ـ واكجى ـ بوجكان ـ بكري ـ اجف ـ سبابو ـ بالا ـ النصي ابوض ـ مرزوق ـ الشراكي ـ بوذينة ـ بحيليس ـ غيلان ـ خربوش ـ يرعاه</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">اهل الطاهر:</h3>
+                    <p class="family-members">مكوم ـ كديوار ـ الطاهر ـ بوستى ـ عبا ـ كنيفير ـ الصياد ـ أمهيمر ـ بوزنكاط ـ بوكشوض ـ لمدسم ـ بنكا ـ الشين ـ هربال ـ هرواش ـ جيغبي ـ مبروك</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">لغزاونة :</h3>
+                    <p class="family-members">الشاهر ـ زرافة ـ الشين ـ سواخ ـ بوتماكوست ـ نكدا ـ العراك ـ بوتغناش ـمروقيس ـ فركاك ـ مردي ـ الغزواني ـ شباح ـ التيس ـ الروكال</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tribe 9 -->
+        <div id="tribe-9" class="tribe-card scroll-mt-24">
+            <div class="tribe-card-header">قبيلة أهل حمو علي</div>
+            <div class="tribe-card-body">
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل هباد :</h3>
+                    <p class="family-members">هباد ـ شربال ـ الغيلاني ـ جاع ـ بعاج ـ بلح ـ لمفر ـ حميدا ـ شهير عند الله ـ البهالي ـ الكنتاوي ـ دراما</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل ويسي:</h3>
+                    <p class="family-members">ويسي ـ بريب ـ الحماوي ـ باها ـ واركزيزـ عباد</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="family-heading">أهل عدي أحماد :</h3>
+                    <p class="family-members">زعواط ـ عدي ـ جاع ـ لكحل ـ مكحول ـ حنيني ـ بوجناح ـ الشيلح زويهار ـ فقير ـ لكديح ـ بيلة</p>
+                </div>
+                
+                <div class="mb-2">
+                    <h3 class="family-heading">أهل علي مزين :</h3>
+                    <p class="family-members">مزين ـ الريكط ـ مزي ـ لزعر ـ لكدالي ـ الحيمر ـ نيغى</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- قبيلة أكوارير -->
+    <div class="tribe-card">
+        <div class="tribe-card-header">قبيلة أكوارير</div>
+        <div class="tribe-card-body">
+            <h3 class="family-heading">أهل بوكنين:</h3>
+            <p class="family-members">بوكنين ـ بونحاس ـ عمران ـ شكوتي ـ كورار</p>
+
+            <h3 class="family-heading">أهل حماد أبوجمع:</h3>
+            <p class="family-members">مسو ـ باج ـ بولمباع ـ لمشكرد ـ لمغيرج ـ وكاري ـ الكفيني ـ الماهل ـ بوتسبيح ـ منجيج ـ غيثنا ـ خبيرون ـ كراف ـ بتي ـ لمغيفري ـ تفرا</p>
+            <p class="family-members">علو ـ لفريملي ـ الشين ـ منيجة ـ لزعر ـ حبكا ـ سليفة ـ زكرر ـ البدوي ـ عبيد ـ لخضر ـ مرزوك ـ بجرجي ـ بوشنتوف</p>
+
+            <h3 class="family-heading">أهل حما أسعيد:</h3>
+            <p class="family-members">بوماط ـ حسنة ـ لكيحل ـ بوعسيرية ـ بوكريشة ـ ضبيع ـ كعاط الباتفورـ لعيال</p>
+
+        </div>
+    </div>
+
+    <!-- قبيلة أجواكين -->
+    <div class="tribe-card">
+        <div class="tribe-card-header">قبيلة أجواكين</div>
+        <div class="tribe-card-body">
+            <h3 class="family-heading">أهل باهنين:</h3>
+            <p class="family-members">باهنين ـ البخاري ـ افقير ـ ميارة ـ البيضة ـ بوكرارة</p>
+
+            <h3 class="family-heading">أهل محمد اسعيد:</h3>
+            <p class="family-members">الزيغم ـ الكيتوف ـ لكزولي ـ حمنا ـ حيسون</p>
+
+            <h3 class="family-heading">أهل عدي:</h3>
+            <p class="family-members">لكان ـ عدي ـ البدر ـ لكنيتي ـ أمخش ـ عدنان</p>
+
+            <h3 class="family-heading">أهل حماد:</h3>
+            <p class="family-members">كرماط ـ زيعور ـ بيكاس ـ بي حنا ـ نبيش ـ هبا</p>
+        </div>
+    </div>
+
+    <!-- قبيلة أهل حمو علي
+    <div class="tribe-card">
+        <div class="tribe-card-header">قبيلة أهل حمو علي</div>
+        <div class="tribe-card-body">
+            <h3 class="family-heading">أهل هباد:</h3>
+            <p class="family-members">هباد ـ شربال ـ الغيلاني ـ جاع ـ بعاج ـ بلح ـ لمفر ـ حميدا ـ شهير عند الله ـ البهالي ـ الكنتاوي ـ دراما</p>
+
+            <h3 class="family-heading">أهل ويسي:</h3>
+            <p class="family-members">ويسي ـ بريب ـ الحماوي ـ باها ـ واركزيز ـ عباد</p>
+
+            <h3 class="family-heading">أهل عدي أحماد:</h3>
+            <p class="family-members">زعواط ـ عدي ـ جاع ـ لكحل ـ مكحول ـ حنيني ـ بوجناح ـ الشيلح زويهار ـ فقير ـ لكديح ـ بيلة</p>
+
+            <h3 class="family-heading">أهل علي مزين:</h3>
+            <p class="family-members">مزين ـ الريكط ـ مزي ـ لزعر ـ لكدالي ـ الحيمر ـ نيغى</p>
+        </div>
+    </div> -->
+
+    <footer class="bg-gradient-to-b from-green-900 to-green-700 text-white mx-auto">
+        <div class="container mx-auto px-4">
+            <h5 class="text-2xl font-semibold text-center mb-6">تواصل معنا</h5>
+    
+            <div class="flex justify-center space-x-8 mb-6">
+                <!-- Email -->
+                <a href="#" class="flex items-center space-x-2 text-gray-400 hover:text-white" title="البريد الإلكتروني">
+                    <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+                        <i class="fas fa-envelope text-white"></i>
+                    </div>
+                    <span class="contact-label text-white">البريد الإلكتروني</span>
+                </a>
+    
+              
+    
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/hamza.hsaina.7" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-white" title="فيسبوك">
+                    <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+                        <i class="fab fa-facebook-f text-white"></i>
+                    </div>
+                    <span class="contact-label text-white">فيسبوك</span>
+                </a>
+    
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/abidinguelmim?igsh=MXRianE3aWF1ZGtvOA==" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-white" title="انستغرام">
+                    <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+                        <i class="fab fa-instagram text-white"></i>
+                    </div>
+                    <span class="contact-label text-white">انستغرام</span>
+                </a>
+    
+                <!-- Location -->
+                <a href="https://maps.google.com/?q=XXP4+JW6, Guelmim 81000, Morocco" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-white" title="الموقع">
+                    <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt text-white"></i>
+                    </div>
+                    <span class="contact-label text-white">الموقع</span>
+                </a>
+            </div>
+    
+            <div class="border-t border-green-600 mt-6"></div>
+    
+            <div class="footer-bottom text-center mt-4">
+                <div class="text-gray-400 text-white">
+                    جميع الحقوق محفوظة © 2025
+                </div>
+            </div>
+        </div>
+    </footer>
+
