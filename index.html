@@ -285,6 +285,115 @@
                 font-size: 0.95rem;
             }
         }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .header {
+            background-color: #1a472a;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1a472a;
+            padding: 10px 0;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+        
+        .main-title {
+            text-align: center;
+            color: #1a472a;
+            margin: 30px 0;
+        }
+        
+        .subtitle {
+            text-align: center;
+            margin: 10px 0 30px;
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .tribes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .tribe-section {
+            margin-bottom: 30px;
+        }
+        
+        .tribe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .tribe-item {
+            background-color: #f0f8f4;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .tribe-item:hover {
+            background-color: #e0eee4;
+            transform: translateY(-3px);
+        }
+        
+        .tribe-item a {
+            text-decoration: none;
+            color: #1a472a;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .section-header {
+            background-color: #1a472a;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -322,7 +431,7 @@
         </div>
 
         <!-- Table of Contents -->
-        <div class="toc" id="toc">
+        <!-- <div class="toc" id="toc">
             <h2 class="toc-title">فهرس القبائل</h2>
             <div class="toc-grid">
                 <a href="#tribe-1" class="toc-link">اعراش أيت ايدر</a>
@@ -336,6 +445,60 @@
                 <a href="#tribe-9" class="toc-link">اعراش أهل حمو علي</a>
                 <a href="#tribe-10" class="toc-link">اعراش أكوارير</a>
                 <a href="#tribe-11" class="toc-link">اعراش أجواكين</a>
+            </div>
+        </div> -->
+         <div class="card">
+            <h2 class="toc-title">فهرس القبائل</h2>
+            
+            <!-- القسم الأول -->
+            <div class="tribe-section">
+                <div class="section-header">
+                    <h3>إداو مليل</h3>
+                </div>
+                <div class="tribe-grid">
+                    <div class="tribe-item">
+                        <a href="#tribe-1" class="toc-link">اعراش أيت ايدر</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-2" class="toc-link">اعراش أيت بوجمع</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-5" class="toc-link">اعراش انفاليس</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-6" class="toc-link">اعراش أيت وعيان</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-3" class="toc-link">اعراش إداوتيا</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-4" class="toc-link">اعراش إمغلاي</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- القسم الثاني -->
+            <div class="tribe-section">
+                <div class="section-header">
+                    <h3>إداو امكيت</h3>
+                </div>
+                <div class="tribe-grid">
+                    <div class="tribe-item">
+                        <a href="#tribe-9" class="toc-link">اعراش أهل حمو علي</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-10" class="toc-link">اعراش اكوادير</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-11" class="toc-link">اعراش اجواكين</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-8" class="toc-link">اعراش أهل بوجمع أمسعود</a>
+                    </div>
+                    <div class="tribe-item">
+                        <a href="#tribe-7" class="toc-link">اعراش أهل مسعيد اسعيد</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -567,7 +730,7 @@
         </div>
 
     <!-- اعراش أكوارير -->
-    <div class="tribe-card">
+    <div class="tribe-card scroll-mt-24" id="tribe-10">
         <div class="tribe-card-header">اعراش أكوارير</div>
         <div class="tribe-card-body">
             <h3 class="family-heading">أهل بوكنين:</h3>
@@ -584,7 +747,7 @@
     </div>
 
     <!-- اعراش أجواكين -->
-    <div class="tribe-card">
+    <div class="tribe-card scroll-mt-24" id="tribe-11">
         <div class="tribe-card-header">اعراش أجواكين</div>
         <div class="tribe-card-body">
             <h3 class="family-heading">أهل باهنين:</h3>
