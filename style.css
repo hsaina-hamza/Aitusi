@@ -335,11 +335,6 @@ body {
     text-align: center;
 }
 
-.tribes-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
 
 .tribe-section {
     margin-bottom: 30px;
@@ -347,10 +342,10 @@ body {
 
 .tribe-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 15px;
-    margin-bottom: 20px;
 }
+
 
 .tribe-item {
     background-color: #f0f8f4;
@@ -419,6 +414,7 @@ body {
     display: grid;
     /* grid-template-columns: 1fr 1fr; */
     gap: 30px;
+    
     
 }
 
