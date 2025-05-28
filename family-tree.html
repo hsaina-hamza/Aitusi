@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>شجرة عائلة حسينا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* [Previous CSS styles remain the same] */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Naskh Arabic', serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 50%, #ffffff 100%);
+            color: #2c5530;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Add new styles for interactive features */
+        .children, .grandchildren, .great-grandchildren {
+            display: none;
+        }
+
+        .active > .children,
+        .active > .grandchildren,
+        .active > .great-grandchildren {
+            display: flex;
+        }
+
+        .member {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .member.active {
+            background: linear-gradient(145deg, #c8e6c9, #e8f5e9);
+            border-color: #4caf50;
+            transform: scale(1.05);
+            box-shadow: 
+                0 15px 35px rgba(46, 125, 50, 0.2),
+                0 0 20px rgba(129, 199, 132, 0.3);
+        }
+
+        /* [Rest of the previous CSS styles remain the same] */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-right"></i> العودة إلى الصفحة الرئيسية
+        </a>
+        
+        <div class="family-container">
+            <h1>شجرة عائلة حسينا</h1>
+            
+            <div class="tree">
+                <!-- Root member (حسينا) -->
+                <div class="member root-member" data-name="حسينا" style="--delay: 0">
+                    <i class="fas fa-crown icon"></i> حسينا
+                    
+                    <div class="children">
+                        <!-- مسعود Branch -->
+                        <div class="family-branch">
+                            <div class="member" data-name="مسعود" style="--delay: 1">
+                                <i class="fas fa-user icon"></i> مسعود
+                                
+                                <div class="grandchildren">
+                                    <div class="member" style="--delay: 2">
+                                        <i class="fas fa-user icon"></i> محمد مولود
+                                    </div>
+                                    <div class="great-grandchildren">
+                                        <div class="member" style="--delay: 3">
+                                            <i class="fas fa-user icon"></i> مبارك
+                                        </div>
+                                        <div class="member" style="--delay: 4">
+                                            <i class="fas fa-user icon"></i> عبدالله
+                                        </div>
+                                        <div class="member" style="--delay: 5">
+                                            <i class="fas fa-user icon"></i> الحسان
+                                        </div>
+                                        <div class="member" style="--delay: 6">
+                                            <i class="fas fa-user icon"></i> صالح
+                                        </div>
+                                        <div class="member" style="--delay: 7">
+                                            <i class="fas fa-user icon"></i> علي سالم
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- عبد الله Branch -->
+                        <div class="family-branch">
+                            <div class="member" data-name="عبد الله" style="--delay: 8">
+                                <i class="fas fa-user icon"></i> عبد الله
+                                
+                                <div class="grandchildren">
+                                    <div class="member" style="--delay: 9">
+                                        <i class="fas fa-user icon"></i> محمد
+                                    </div>
+                                    <div class="member" style="--delay: 10">
+                                        <i class="fas fa-user icon"></i> أحمد
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const members = document.querySelectorAll('.member');
+            
+            members.forEach(member => {
+                member.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent event bubbling
+                    
+                    // If clicking on مسعود
+                    if (this.dataset.name === 'مسعود') {
+                        // Hide all other family branches
+                        document.querySelectorAll('.family-branch').forEach(branch => {
+                            if (!branch.contains(this)) {
+                                branch.style.display = 'none';
+                            }
+                        });
+                        
+                        // Show مسعود's children and grandchildren
+                        this.classList.add('active');
+                        const grandchildren = this.querySelector('.grandchildren');
+                        if (grandchildren) {
+                            grandchildren.style.display = 'flex';
+                        }
+                    }
+                    // If clicking on حسينا
+                    else if (this.dataset.name === 'حسينا') {
+                        // Show all immediate children
+                        document.querySelectorAll('.family-branch').forEach(branch => {
+                            branch.style.display = 'flex';
+                        });
+                        this.classList.add('active');
+                    }
+                    // For other members
+                    else {
+                        this.classList.toggle('active');
+                    }
+                    
+                    // Toggle visibility of direct children
+                    const children = this.querySelector('.children, .grandchildren, .great-grandchildren');
+                    if (children) {
+                        children.style.display = children.style.display === 'none' ? 'flex' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
