@@ -6,109 +6,254 @@
     <title>شجرة عائلة حسينا</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <style>
-        /* [Previous CSS styles remain the same] */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Naskh Arabic', serif;
-            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 50%, #ffffff 100%);
-            color: #2c5530;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-        }
-
-        /* Add new styles for interactive features */
-        .children, .grandchildren, .great-grandchildren {
-            display: none;
-        }
-
-        .active > .children,
-        .active > .grandchildren,
-        .active > .great-grandchildren {
-            display: flex;
-        }
-
-        .member {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .member.active {
-            background: linear-gradient(145deg, #c8e6c9, #e8f5e9);
-            border-color: #4caf50;
-            transform: scale(1.05);
-            box-shadow: 
-                0 15px 35px rgba(46, 125, 50, 0.2),
-                0 0 20px rgba(129, 199, 132, 0.3);
-        }
-
-        /* [Rest of the previous CSS styles remain the same] */
-    </style>
+    <link rel="stylesheet" href="famiy.css">
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-link">
             <i class="fas fa-arrow-right"></i> العودة إلى الصفحة الرئيسية
         </a>
-        
+
         <div class="family-container">
             <h1>شجرة عائلة حسينا</h1>
             
             <div class="tree">
-                <!-- Root member (حسينا) -->
-                <div class="member root-member" data-name="حسينا" style="--delay: 0">
-                    <i class="fas fa-crown icon"></i> حسينا
-                    
-                    <div class="children">
-                        <!-- مسعود Branch -->
-                        <div class="family-branch">
-                            <div class="member" data-name="مسعود" style="--delay: 1">
-                                <i class="fas fa-user icon"></i> مسعود
-                                
-                                <div class="grandchildren">
-                                    <div class="member" style="--delay: 2">
-                                        <i class="fas fa-user icon"></i> محمد مولود
+                <!-- Root Member -->
+                <div class="member root-member" data-name="حسينا">
+                    <i class="fas fa-crown icon"></i>
+                    حسينا
+                </div>
+
+                <!-- First Generation -->
+                <div class="generation" id="first-gen">
+                    <div class="family-branch" data-name="مسعود">
+                        <div class="member" data-name="مسعود">
+                            <i class="fas fa-user icon"></i>
+                            مسعود
+                        </div>
+                        <div class="children">
+                            <div class="member" data-name="محمد-مولود">
+                                <i class="fas fa-user icon"></i>
+                                محمد مولود
+                            </div>
+                            <div class="member">
+                                <i class="fas fa-user icon"></i>
+                                بلا
+                            </div>
+                        </div>
+                        <div class="grandchildren" id="محمد-مولود-children">
+                            <div class="family-branch" data-name="مبارك-branch">
+                                <div class="member" data-name="مبارك">
+                                    <i class="fas fa-user icon"></i>
+                                    مبارك
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        سعيد أصكام 
                                     </div>
-                                    <div class="great-grandchildren">
-                                        <div class="member" style="--delay: 3">
-                                            <i class="fas fa-user icon"></i> مبارك
-                                        </div>
-                                        <div class="member" style="--delay: 4">
-                                            <i class="fas fa-user icon"></i> عبدالله
-                                        </div>
-                                        <div class="member" style="--delay: 5">
-                                            <i class="fas fa-user icon"></i> الحسان
-                                        </div>
-                                        <div class="member" style="--delay: 6">
-                                            <i class="fas fa-user icon"></i> صالح
-                                        </div>
-                                        <div class="member" style="--delay: 7">
-                                            <i class="fas fa-user icon"></i> علي سالم
-                                        </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        البشير حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        محمد أصكام 
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- عبد الله Branch -->
-                        <div class="family-branch">
-                            <div class="member" data-name="عبد الله" style="--delay: 8">
-                                <i class="fas fa-user icon"></i> عبد الله
-                                
-                                <div class="grandchildren">
-                                    <div class="member" style="--delay: 9">
-                                        <i class="fas fa-user icon"></i> محمد
+                            <div class="family-branch" data-name="عبدالله-branch">
+                                <div class="member" data-name="عبدالله">
+                                    <i class="fas fa-user icon"></i>
+                                    عبدالله حسينا
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا
                                     </div>
-                                    <div class="member" style="--delay: 10">
-                                        <i class="fas fa-user icon"></i> أحمد
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا محمد
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا محمود
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا سيد أحمد
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="family-branch" data-name="الحسان-branch">
+                                <div class="member" data-name="الحسان">
+                                    <i class="fas fa-user icon"></i>
+                                    الحسان أصكام 
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        عبد الله أصكام 
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        احمد أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        سليمان أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        عبد الرحمن أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        الحافظ أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        براهيم أصكام 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="صالح-branch">
+                                <div class="member" data-name="صالح">
+                                    <i class="fas fa-user icon"></i>
+                                    صالح
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        محمد
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        ?
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="علي-سالم-branch">
+                                <div class="member" data-name="علي-سالم">
+                                    <i class="fas fa-user icon"></i>
+                                    علي سالم حسينا
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        سيدعمر حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حمزة حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        ? حسينا
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="علي-branch">
+                                <div class="member" data-name="علي">
+                                    <i class="fas fa-user icon"></i>
+                                    علي أصكام 
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="البشير-branch">
+                                <div class="member" data-name="البشير">
+                                    <i class="fas fa-user icon"></i>
+                                    البشير أصكام 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="family-branch" data-name="مبارك">
+                        <div class="member" data-name="مبارك">
+                            <i class="fas fa-user icon"></i>
+                            مبارك
+                        </div>
+                        <div class="children">
+                            <div class="member" data-name="سعيد">
+                                <i class="fas fa-user icon"></i>
+                                سعيد
+                            </div>
+                            <div class="member" data-name="البشير-مبارك">
+                                <i class="fas fa-user icon"></i>
+                                 البشير
+                            </div>
+                            <div class="member" data-name="محمد-مبارك">
+                                <i class="fas fa-user icon"></i>
+                                محمد
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="family-branch" data-name="بيه">
+                        <div class="member" data-name="بيه">
+                            <i class="fas fa-user icon"></i>
+                            بيه
+                        </div>
+                        <div class="children">
+                            <div class="member" data-name="اهل-ببيش">
+                                <i class="fas fa-user icon"></i>
+                                اهل ببيش
+                            </div>
+                            <div class="member" data-name="الحسين-بيه">
+                                <i class="fas fa-user icon"></i>
+                                الحسين
+                            </div>
+                            <div class="member" data-name="البشر-بيه">
+                                <i class="fas fa-user icon"></i>
+                                البشر
+                            </div>
+                            <div class="member" data-name="احمد-بيه">
+                                <i class="fas fa-user icon"></i>
+                                احمد
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="family-branch" data-name="حماد">
+                        <div class="member" data-name="حماد">
+                            <i class="fas fa-user icon"></i>
+                            حماد
+                        </div>
+                        <div class="children">
+                            <div class="member" data-name="سعيد-حماد">
+                                <i class="fas fa-user icon"></i>
+                                سعيد
+                            </div>
+                            <div class="member" data-name="محمد-حماد">
+                                <i class="fas fa-user icon"></i>
+                                محمد
+                            </div>
+                            <div class="member" data-name="الحسين-حماد">
+                                <i class="fas fa-user icon"></i>
+                                الحسين
                             </div>
                         </div>
                     </div>
@@ -119,49 +264,80 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const rootMember = document.querySelector('.root-member');
+            const firstGen = document.getElementById('first-gen');
             const members = document.querySelectorAll('.member');
-            
-            members.forEach(member => {
-                member.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Prevent event bubbling
-                    
-                    // If clicking on مسعود
-                    if (this.dataset.name === 'مسعود') {
-                        // Hide all other family branches
-                        document.querySelectorAll('.family-branch').forEach(branch => {
-                            if (!branch.contains(this)) {
-                                branch.style.display = 'none';
-                            }
-                        });
-                        
-                        // Show مسعود's children and grandchildren
-                        this.classList.add('active');
-                        const grandchildren = this.querySelector('.grandchildren');
-                        if (grandchildren) {
-                            grandchildren.style.display = 'flex';
-                        }
-                    }
-                    // If clicking on حسينا
-                    else if (this.dataset.name === 'حسينا') {
-                        // Show all immediate children
-                        document.querySelectorAll('.family-branch').forEach(branch => {
-                            branch.style.display = 'flex';
-                        });
-                        this.classList.add('active');
-                    }
-                    // For other members
-                    else {
-                        this.classList.toggle('active');
-                    }
-                    
-                    // Toggle visibility of direct children
-                    const children = this.querySelector('.children, .grandchildren, .great-grandchildren');
-                    if (children) {
-                        children.style.display = children.style.display === 'none' ? 'flex' : 'none';
-                    }
+
+            // Show/hide first generation when clicking on root
+            rootMember.addEventListener('click', function() {
+                this.classList.toggle('active');
+                firstGen.classList.toggle('visible');
+                // Reset all branches when clicking root
+                document.querySelectorAll('.family-branch').forEach(branch => {
+                    branch.style.display = 'flex';
                 });
+                // Hide all children when showing all branches
+                document.querySelectorAll('.children, .grandchildren').forEach(child => {
+                    child.classList.remove('visible');
+                });
+                document.querySelectorAll('.member:not(.root-member)').forEach(member => {
+                    member.classList.remove('active');
+                });
+            });
+
+            // Handle clicks on other members
+            members.forEach(member => {
+                if (!member.classList.contains('root-member')) {
+                    member.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        
+                        const name = this.dataset.name;
+                        const branch = this.closest('.family-branch');
+                        const children = this.nextElementSibling;
+                        
+                        // If clicking on first generation members (مسعود, مبارك, بيه, حماد)
+                        if (['مسعود', 'مبارك', 'بيه', 'حماد'].includes(name) && !this.closest('.grandchildren')) {
+                            // Hide other branches
+                            document.querySelectorAll('.family-branch:not([data-name$="-branch"])').forEach(b => {
+                                if (b !== branch) {
+                                    b.style.display = 'none';
+                                }
+                            });
+                            
+                            // Show this branch's children
+                            if (children) {
+                                this.classList.toggle('active');
+                                children.classList.toggle('visible');
+                            }
+                        }
+                        // For محمد مولود
+                        else if (name === 'محمد-مولود') {
+                            const grandchildren = document.getElementById('محمد-مولود-children');
+                            this.classList.toggle('active');
+                            grandchildren.classList.toggle('visible');
+                            // Reset all family branches within grandchildren to be visible
+                            grandchildren.querySelectorAll('.family-branch').forEach(b => {
+                                b.style.display = 'flex';
+                            });
+                        }
+                        // For members within محمد مولود's children (مبارك, عبدالله, etc.)
+                        else if (name && (name.endsWith('-branch') || this.closest('.grandchildren'))) {
+                            const children = this.nextElementSibling;
+                            if (children) {
+                                this.classList.toggle('active');
+                                children.classList.toggle('visible');
+                            }
+                        }
+                        // For other members
+                        else if (children) {
+                            this.classList.toggle('active');
+                            children.classList.toggle('visible');
+                        }
+                    });
+                }
             });
         });
     </script>
 </body>
 </html>
+</final_file_content>
