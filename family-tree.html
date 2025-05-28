@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>شجرة عائلة حسينا</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         * {
@@ -163,8 +165,13 @@
         }
 
         @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
         }
 
         .root-member:hover {
@@ -221,7 +228,8 @@
             box-shadow: 0 15px 40px rgba(107, 155, 122, 0.2);
         }
 
-        .children, .grandchildren {
+        .children,
+        .grandchildren {
             display: none;
             flex-wrap: wrap;
             justify-content: center;
@@ -232,7 +240,8 @@
             transition: all 0.5s ease;
         }
 
-        .children.visible, .grandchildren.visible {
+        .children.visible,
+        .grandchildren.visible {
             display: flex;
             opacity: 1;
             transform: translateY(0);
@@ -322,6 +331,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -353,6 +363,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <a href="index.html" class="back-link">
@@ -361,7 +372,7 @@
 
         <div class="family-container">
             <h1>شجرة عائلة حسينا</h1>
-            
+
             <div class="tree">
                 <!-- Root Member -->
                 <div class="member root-member" data-name="حسينا">
@@ -395,7 +406,7 @@
                                 <div class="children">
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
-                                        سعيد أصكام 
+                                        سعيد أصكام
                                     </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
@@ -403,7 +414,7 @@
                                     </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
-                                        محمد أصكام 
+                                        محمد أصكام
                                     </div>
                                 </div>
                             </div>
@@ -416,7 +427,24 @@
                                 <div class="children">
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
-                                        حسينا
+                                        حسينا احمد سالم
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا شيخ
+                                    </div>
+
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا حمادي
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا محمد مبارك
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا لحبيب
                                     </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
@@ -424,27 +452,11 @@
                                     </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
-                                        حسينا محمود
-                                    </div>
-                                    <div class="member">
-                                        <i class="fas fa-user icon"></i>
                                         حسينا سيد أحمد
                                     </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
-                                        حسينا
-                                    </div>
-                                    <div class="member">
-                                        <i class="fas fa-user icon"></i>
-                                        حسينا
-                                    </div>
-                                    <div class="member">
-                                        <i class="fas fa-user icon"></i>
-                                        حسينا
-                                    </div>
-                                    <div class="member">
-                                        <i class="fas fa-user icon"></i>
-                                        حسينا
+                                        حسينا محمود
                                     </div>
                                 </div>
                             </div>
@@ -452,12 +464,12 @@
                             <div class="family-branch" data-name="الحسان-branch">
                                 <div class="member" data-name="الحسان">
                                     <i class="fas fa-user icon"></i>
-                                    الحسان أصكام 
+                                    الحسان أصكام
                                 </div>
                                 <div class="children">
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
-                                        عبد الله أصكام 
+                                        عبد الله أصكام
                                     </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
@@ -477,7 +489,7 @@
                                     </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
-                                        براهيم أصكام 
+                                        براهيم أصكام
                                     </div>
                                 </div>
                             </div>
@@ -523,16 +535,41 @@
                             <div class="family-branch" data-name="علي-branch">
                                 <div class="member" data-name="علي">
                                     <i class="fas fa-user icon"></i>
-                                    علي أصكام 
+                                    علي أصكام
                                 </div>
                             </div>
 
                             <div class="family-branch" data-name="البشير-branch">
                                 <div class="member" data-name="البشير">
                                     <i class="fas fa-user icon"></i>
-                                    البشير أصكام 
+                                    البشير
+                                </div>
+                                <div class="children">
+                                    <div class="member" data-name="البشير-أصكام">
+                                        <i class="fas fa-user icon"></i>
+                                        البشير أصكام
+                                    </div>
+                                    <div class="children">
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            الحبيب أصكام
+                                        </div>
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            الفاضل أصكام
+                                        </div>
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            الحسن أصكام
+                                        </div>
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            أحمد أصكام
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
 
@@ -548,7 +585,7 @@
                             </div>
                             <div class="member" data-name="البشير-مبارك">
                                 <i class="fas fa-user icon"></i>
-                                 البشير
+                                البشير
                             </div>
                             <div class="member" data-name="محمد-مبارك">
                                 <i class="fas fa-user icon"></i>
@@ -608,7 +645,7 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const rootMember = document.querySelector('.root-member');
             const firstGen = document.getElementById('first-gen');
             const members = document.querySelectorAll('.member');
@@ -623,9 +660,9 @@
             }
 
             // Show/hide first generation when clicking on root
-            rootMember.addEventListener('click', function() {
+            rootMember.addEventListener('click', function () {
                 this.classList.toggle('active');
-                
+
                 if (firstGen.classList.contains('visible')) {
                     firstGen.classList.remove('visible');
                 } else {
@@ -634,17 +671,17 @@
                     const branches = firstGen.querySelectorAll('.family-branch');
                     animateElements(branches, 150);
                 }
-                
+
                 // Reset all branches when clicking root
                 document.querySelectorAll('.family-branch').forEach(branch => {
                     branch.style.display = 'flex';
                 });
-                
+
                 // Hide all children when showing all branches
                 document.querySelectorAll('.children, .grandchildren').forEach(child => {
                     child.classList.remove('visible');
                 });
-                
+
                 document.querySelectorAll('.member:not(.root-member)').forEach(member => {
                     member.classList.remove('active');
                 });
@@ -653,19 +690,19 @@
             // Handle clicks on other members with improved performance
             members.forEach(member => {
                 if (!member.classList.contains('root-member')) {
-                    member.addEventListener('click', function(e) {
+                    member.addEventListener('click', function (e) {
                         e.stopPropagation();
-                        
+
                         const name = this.dataset.name;
                         const branch = this.closest('.family-branch');
                         const children = this.nextElementSibling;
-                        
+
                         // Enhanced interaction feedback
                         this.style.transform = 'scale(0.95)';
                         setTimeout(() => {
                             this.style.transform = '';
                         }, 150);
-                        
+
                         // If clicking on first generation members
                         if (['مسعود', 'مبارك', 'بيه', 'حماد'].includes(name) && !this.closest('.grandchildren')) {
                             // Hide other branches with smooth transition
@@ -678,7 +715,7 @@
                                     }, 300);
                                 }
                             });
-                            
+
                             // Show this branch's children
                             if (children) {
                                 this.classList.toggle('active');
@@ -691,7 +728,7 @@
                         else if (name === 'محمد-مولود') {
                             const grandchildren = document.getElementById('محمد-مولود-children');
                             this.classList.toggle('active');
-                            
+
                             setTimeout(() => {
                                 grandchildren.classList.toggle('visible');
                                 if (grandchildren.classList.contains('visible')) {
@@ -728,13 +765,13 @@
             // Enhanced mobile touch handling
             let touchTimeout;
             members.forEach(member => {
-                member.addEventListener('touchstart', function() {
+                member.addEventListener('touchstart', function () {
                     touchTimeout = setTimeout(() => {
                         this.style.transform = 'scale(1.05)';
                     }, 100);
                 });
 
-                member.addEventListener('touchend', function() {
+                member.addEventListener('touchend', function () {
                     clearTimeout(touchTimeout);
                     this.style.transform = '';
                 });
@@ -743,7 +780,7 @@
             // Improved keyboard accessibility
             members.forEach(member => {
                 member.setAttribute('tabindex', '0');
-                member.addEventListener('keydown', function(e) {
+                member.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
                         this.click();
@@ -753,4 +790,5 @@
         });
     </script>
 </body>
+
 </html>
