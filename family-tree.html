@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>شجرة عائلة حسينا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Naskh Arabic', serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 50%, #ffffff 100%);
+            min-height: 100vh;
+            color: #2d5016;
+            overflow-x: auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #4a7c59;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(74, 124, 89, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+
+        .back-link:hover {
+            background: #4a7c59;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 124, 89, 0.3);
+        }
+
+        .family-container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2d5016;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(45, 80, 22, 0.1);
+            font-weight: 700;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a7c59, #6b9b7a);
+            border-radius: 2px;
+        }
+
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        .member {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fdf8 100%);
+            border: 3px solid #6b9b7a;
+            border-radius: 20px;
+            padding: 15px 25px;
+            margin: 8px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: 16px;
+            color: #2d5016;
+            box-shadow: 0 8px 25px rgba(107, 155, 122, 0.15);
+            position: relative;
+            backdrop-filter: blur(5px);
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(107, 155, 122, 0.1), rgba(255, 255, 255, 0.1));
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member:hover::before {
+            opacity: 1;
+        }
+
+        .member:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(107, 155, 122, 0.25);
+            border-color: #4a7c59;
+            background: linear-gradient(135deg, #f8fdf8 0%, #ffffff 100%);
+        }
+
+        .member.active {
+            background: linear-gradient(135deg, #4a7c59 0%, #6b9b7a 100%);
+            color: white;
+            border-color: #2d5016;
+            box-shadow: 0 12px 30px rgba(74, 124, 89, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .member.active::before {
+            opacity: 0;
+        }
+
+        .root-member {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 20px 35px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 15px 40px rgba(45, 80, 22, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .root-member::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        .root-member:hover {
+            transform: translateY(-10px) scale(1.08);
+            box-shadow: 0 20px 50px rgba(45, 80, 22, 0.4);
+        }
+
+        .icon {
+            margin-left: 8px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .root-member .icon {
+            color: #ffd700;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .generation {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .generation.visible {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .family-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 25px;
+            border-radius: 25px;
+            border: 2px solid rgba(107, 155, 122, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(107, 155, 122, 0.1);
+        }
+
+        .family-branch:hover {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(107, 155, 122, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(107, 155, 122, 0.2);
+        }
+
+        .children,
+        .grandchildren {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .children.visible,
+        .grandchildren.visible {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grandchildren {
+            background: rgba(248, 253, 248, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            border: 2px dashed rgba(107, 155, 122, 0.4);
+            gap: 20px;
+        }
+
+        /* Connection Lines */
+        .member::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, #6b9b7a, transparent);
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member.active::after {
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .member {
+                padding: 12px 20px;
+                font-size: 14px;
+                min-width: 120px;
+            }
+
+            .root-member {
+                font-size: 18px;
+                padding: 18px 30px;
+            }
+
+            .family-branch {
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .generation {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .member {
+                padding: 10px 15px;
+                font-size: 13px;
+                min-width: 100px;
+            }
+
+            .root-member {
+                font-size: 16px;
+                padding: 15px 25px;
+            }
+
+            .family-branch {
+                padding: 15px;
+            }
+        }
+
+        /* Animation for better UX */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .family-branch.animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Scroll enhancement */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(107, 155, 122, 0.1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #4a7c59, #6b9b7a);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #2d5016, #4a7c59);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="#" class="back-link">
+            <i class="fas fa-arrow-right"></i> العودة إلى الصفحة الرئيسية
+        </a>
+
+        <div class="family-container">
+            <h1>شجرة عائلة أهل حسينا</h1>
+
+            <div class="tree">
+                <!-- Root Member -->
+                <div class="member root-member" data-name="حسينا">
+                    <i class="fas fa-crown icon"></i>
+                    حسينا
+                </div>
+
+                <!-- First Generation -->
+                <div class="generation" id="first-gen">
+                    <div class="family-branch" data-name="مسعود">
+                        <div class="member" data-name="مسعود">
+                            <i class="fas fa-user icon"></i>
+                            مسعود
+                        </div>
+                        <div class="children">
+                            <div class="member" data-name="محمد-مولود">
+                                <i class="fas fa-user icon"></i>
+                                محمد مولود
+                            </div>
+                            <div class="member">
+                                <i class="fas fa-user icon"></i>
+                                بلا
+                            </div>
+                        </div>
+                        <div class="grandchildren" id="محمد-مولود-children">
+                            <div class="family-branch" data-name="مبارك-branch">
+                                <div class="member" data-name="مبارك">
+                                    <i class="fas fa-user icon"></i>
+                                    مبارك
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        سعيد أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        البشير حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        محمد أصكام
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="عبدالله-branch">
+                                <div class="member" data-name="عبدالله">
+                                    <i class="fas fa-user icon"></i>
+                                    عبدالله حسينا
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا احمد سالم
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا الشيخ
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا حمادي
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا محمد مبارك
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا لحبيب
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا محمد
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا سيد أحمد
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حسينا محمود
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="الحسان-branch">
+                                <div class="member" data-name="الحسان">
+                                    <i class="fas fa-user icon"></i>
+                                    الحسان أصكام
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        عبد الله أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        احمد أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        سليمان أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        عبد الرحمن أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        الحافظ أصكام
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        براهيم أصكام
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="صالح-branch">
+                                <div class="member" data-name="صالح">
+                                    <i class="fas fa-user icon"></i>
+                                    صالح حسينا
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        محمد حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        محمود حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        علي حسينا
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="علي-سالم-branch">
+                                <div class="member" data-name="علي-سالم">
+                                    <i class="fas fa-user icon"></i>
+                                    علي سالم حسينا
+                                </div>
+                                <div class="children">
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        سيداعمر حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        الامين حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        صلاح حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        حمزة حسينا
+                                    </div>
+                                    <div class="member">
+                                        <i class="fas fa-user icon"></i>
+                                        مبارك حسينا
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="علي-branch">
+                                <div class="member" data-name="علي">
+                                    <i class="fas fa-user icon"></i>
+                                    علي أصكام
+                                </div>
+                            </div>
+
+                            <div class="family-branch" data-name="البشير-branch">
+                                <div class="member" data-name="البشير">
+                                    <i class="fas fa-user icon"></i>
+                                    البشير
+                                </div>
+                                <div class="children">
+                                    <div class="member" data-name="البشير-أصكام">
+                                        <i class="fas fa-user icon"></i>
+                                        البشير أصكام
+                                    </div>
+                                    <div class="children">
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            الحبيب أصكام
+                                        </div>
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            الفاضل أصكام
+                                        </div>
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            الحسن أصكام
+                                        </div>
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            أحمد أصكام
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="family-branch" data-name="مبارك">
+                        <div class="member" data-name="مبارك">
+                            <i class="fas fa-user icon"></i>
+                            مبارك
+                        </div>
+                        <div class="children">
+                            <div class="member" data-name="سعيد">
+                                <i class="fas fa-user icon"></i>
+                                سعيد
+                            </div>
+                            <div class="member" data-name="البشير-مبارك">
+                                <i class="fas fa-user icon"></i>
+                                البشير
+                            </div>
+                            <div class="member" data-name="محمد-مبارك">
+                                <i class="fas fa-user icon"></i>
+                                محمد
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="family-branch" data-name="بيه">
+                        <div class="member" data-name="بيه">
+                            <i class="fas fa-user icon"></i>
+                            بيه
+                        </div>
+                        <div class="children">
+                            <div class="member" data-name="اهل-ببيش">
+                                <i class="fas fa-user icon"></i>
+                                اهل ببيش
+                            </div>
+                            <div class="member" data-name="الحسين-بيه">
+                                <i class="fas fa-user icon"></i>
+                                الحسين
+                            </div>
+                            <div class="member" data-name="البشر-بيه">
+                                <i class="fas fa-user icon"></i>
+                                البشر
+                            </div>
+                            <div class="member" data-name="احمد-بيه">
+                                <i class="fas fa-user icon"></i>
+                                احمد
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="family-branch" data-name="حماد">
+                        <div class="member" data-name="حماد">
+                            <i class="fas fa-user icon"></i>
+                            حماد
+                        </div>
+                        <div class="children">
+                            <div class="member" data-name="سعيد-حماد">
+                                <i class="fas fa-user icon"></i>
+                                سعيد
+                            </div>
+                            <div class="member" data-name="محمد-حماد">
+                                <i class="fas fa-user icon"></i>
+                                محمد
+                            </div>
+                            <div class="member" data-name="الحسين-حماد">
+                                <i class="fas fa-user icon"></i>
+                                الحسين
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const rootMember = document.querySelector('.root-member');
+            const firstGen = document.getElementById('first-gen');
+            const members = document.querySelectorAll('.member');
+
+            // Enhanced animation timing
+            function animateElements(elements, delay = 100) {
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('animate');
+                    }, index * delay);
+                });
+            }
+
+            // Show/hide first generation when clicking on root
+            rootMember.addEventListener('click', function () {
+                this.classList.toggle('active');
+
+                if (firstGen.classList.contains('visible')) {
+                    firstGen.classList.remove('visible');
+                } else {
+                    firstGen.classList.add('visible');
+                    // Animate family branches
+                    const branches = firstGen.querySelectorAll('.family-branch');
+                    animateElements(branches, 150);
+                }
+
+                // Reset all branches when clicking root
+                document.querySelectorAll('.family-branch').forEach(branch => {
+                    branch.style.display = 'flex';
+                });
+
+                // Hide all children when showing all branches
+                document.querySelectorAll('.children, .grandchildren').forEach(child => {
+                    child.classList.remove('visible');
+                });
+
+                document.querySelectorAll('.member:not(.root-member)').forEach(member => {
+                    member.classList.remove('active');
+                });
+            });
+
+            // Handle clicks on other members with improved performance
+            members.forEach(member => {
+                if (!member.classList.contains('root-member')) {
+                    member.addEventListener('click', function (e) {
+                        e.stopPropagation();
+
+                        const name = this.dataset.name;
+                        const branch = this.closest('.family-branch');
+                        const children = this.nextElementSibling;
+
+                        // Enhanced interaction feedback
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+
+                        // If clicking on first generation members
+                        if (['مسعود', 'مبارك', 'بيه', 'حماد'].includes(name) && !this.closest('.grandchildren')) {
+                            // Hide other branches with smooth transition
+                            document.querySelectorAll('.family-branch:not([data-name$="-branch"])').forEach(b => {
+                                if (b !== branch) {
+                                    b.style.opacity = '0.3';
+                                    b.style.transform = 'scale(0.95)';
+                                    setTimeout(() => {
+                                        b.style.display = 'none';
+                                    }, 300);
+                                }
+                            });
+
+                            // Show this branch's children
+                            if (children) {
+                                this.classList.toggle('active');
+                                setTimeout(() => {
+                                    children.classList.toggle('visible');
+                                }, 200);
+                            }
+                        }
+                        // For محمد مولود
+                        else if (name === 'محمد-مولود') {
+                            const grandchildren = document.getElementById('محمد-مولود-children');
+                            this.classList.toggle('active');
+
+                            setTimeout(() => {
+                                grandchildren.classList.toggle('visible');
+                                if (grandchildren.classList.contains('visible')) {
+                                    // Reset all family branches within grandchildren to be visible
+                                    grandchildren.querySelectorAll('.family-branch').forEach(b => {
+                                        b.style.display = 'flex';
+                                    });
+                                    // Animate grandchildren branches
+                                    const grandBranches = grandchildren.querySelectorAll('.family-branch');
+                                    animateElements(grandBranches, 100);
+                                }
+                            }, 200);
+                        }
+                        // For members within محمد مولود's children
+                        else if (name && (name.endsWith('-branch') || this.closest('.grandchildren'))) {
+                            if (children) {
+                                this.classList.toggle('active');
+                                setTimeout(() => {
+                                    children.classList.toggle('visible');
+                                }, 150);
+                            }
+                        }
+                        // For other members
+                        else if (children) {
+                            this.classList.toggle('active');
+                            setTimeout(() => {
+                                children.classList.toggle('visible');
+                            }, 150);
+                        }
+                    });
+                }
+            });
+
+            // Enhanced mobile touch handling
+            let touchTimeout;
+            members.forEach(member => {
+                member.addEventListener('touchstart', function () {
+                    touchTimeout = setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 100);
+                });
+
+                member.addEventListener('touchend', function () {
+                    clearTimeout(touchTimeout);
+                    this.style.transform = '';
+                });
+            });
+
+            // Improved keyboard accessibility
+            members.forEach(member => {
+                member.setAttribute('tabindex', '0');
+                member.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
