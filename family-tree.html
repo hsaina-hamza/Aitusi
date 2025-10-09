@@ -79,14 +79,27 @@
                                         <i class="fas fa-user icon"></i>
                                         إحظيه
                                     </div>
+                                <div class="family-branch grandchildren" data-name="سيد احمد-branch">
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
                                         سيد احمد
                                     </div>
+                                    <div class="children">
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                        الحسين
+                                        </div>
+                                        <div class="member">
+                                            <i class="fas fa-user icon"></i>
+                                            خطري
+                                        </div>
+                                    </div>
+                                </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
                                         محمد
                                     </div>
+                                 <div class="family-branch grandchildren" data-name="علي-branch">
                                     <div class="member" data-name="علي">
                                         <i class="fas fa-user icon"></i>
                                         علي
@@ -109,6 +122,7 @@
                                             عبدالرحمان
                                         </div>
                                     </div>
+                                </div>
                                     <div class="member">
                                         <i class="fas fa-user icon"></i>
                                         أحمد العبيد
@@ -423,6 +437,11 @@
                     branch.style.display = 'flex';
                 });
 
+                // Reset all members display
+                document.querySelectorAll('.member').forEach(member => {
+                    member.style.display = '';
+                });
+
                 // Hide all children when showing all branches
                 document.querySelectorAll('.children, .grandchildren').forEach(child => {
                     child.classList.remove('visible');
@@ -485,6 +504,17 @@
                                     // Animate grandchildren branches
                                     const grandBranches = grandchildren.querySelectorAll('.family-branch');
                                     animateElements(grandBranches, 100);
+                                    // Hide بلا
+                                    const balaMember = document.querySelector('.member[data-name="بلا"]');
+                                    if (balaMember) {
+                                        balaMember.style.display = 'none';
+                                    }
+                                } else {
+                                    // Show بلا back
+                                    const balaMember = document.querySelector('.member[data-name="بلا"]');
+                                    if (balaMember) {
+                                        balaMember.style.display = '';
+                                    }
                                 }
                             }, 200);
                         }
@@ -518,6 +548,17 @@
                                     // Animate grandchildren branches
                                     const grandBranches = grandchildren.querySelectorAll('.family-branch');
                                     animateElements(grandBranches, 100);
+                                    // Hide محمد مولود
+                                    const mohammedMember = document.querySelector('.member[data-name="محمد-مولود"]');
+                                    if (mohammedMember) {
+                                        mohammedMember.style.display = 'none';
+                                    }
+                                } else {
+                                    // Show محمد مولود back
+                                    const mohammedMember = document.querySelector('.member[data-name="محمد-مولود"]');
+                                    if (mohammedMember) {
+                                        mohammedMember.style.display = '';
+                                    }
                                 }
                             }, 200);
                         }
