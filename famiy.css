@@ -236,24 +236,6 @@ h1::after {
     transform: translateY(0);
 }
 
-.children .member {
-    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
-    border-color: #8fbc8f;
-    font-size: 14px;
-    padding: 10px 20px;
-    min-width: 120px;
-    color: #1e3a1e;
-}
-
-.grandchildren .member {
-    background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
-    border-color: #90ee90;
-    font-size: 13px;
-    padding: 8px 18px;
-    min-width: 110px;
-    color: #1e3a1e;
-}
-
 .grandchildren {
     background: rgba(248, 253, 248, 0.8);
     padding: 20px;
