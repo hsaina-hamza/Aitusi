@@ -149,11 +149,7 @@
                                             </div>
                                             <div class="member">
                                                 <i class="fas fa-user icon"></i>
-                                                شيخ 
-                                            </div>
-                                            <div class="member">
-                                                <i class="fas fa-user icon"></i>
-                                                بلا 
+                                                شيخ بلا
                                             </div>
                                             <div class="member">
                                                 <i class="fas fa-user icon"></i>
@@ -469,31 +465,6 @@
                 });
             }
 
-            // Functions to hide and show uncles (father's brothers)
-            function hideUncles(member) {
-                const parentContainer = member.parentElement;
-                const currentBranch = member.closest('.family-branch');
-                const siblings = Array.from(parentContainer.children).filter(el => el !== currentBranch && el !== member && (el.classList.contains('member') || el.classList.contains('family-branch')));
-                siblings.forEach(s => {
-                    s.style.opacity = '0.3';
-                    s.style.transform = 'scale(0.95)';
-                    setTimeout(() => s.style.display = 'none', 300);
-                });
-            }
-
-            function showUncles(member) {
-                const parentContainer = member.parentElement;
-                const currentBranch = member.closest('.family-branch');
-                const siblings = Array.from(parentContainer.children).filter(el => el !== currentBranch && el !== member && (el.classList.contains('member') || el.classList.contains('family-branch')));
-                siblings.forEach(s => {
-                    s.style.display = '';
-                    setTimeout(() => {
-                        s.style.opacity = '1';
-                        s.style.transform = 'scale(1)';
-                    }, 50);
-                });
-            }
-
             // Show/hide first generation when clicking on root
             rootMember.addEventListener('click', function () {
                 this.classList.toggle('active');
@@ -568,11 +539,10 @@
                         else if (name === 'محمد-مولود') {
                             const grandchildren = document.getElementById('محمد-مولود-children');
                             this.classList.toggle('active');
-                            const willBeVisible = !grandchildren.classList.contains('visible');
-                            grandchildren.classList.toggle('visible');
 
                             setTimeout(() => {
-                                if (willBeVisible) {
+                                grandchildren.classList.toggle('visible');
+                                if (grandchildren.classList.contains('visible')) {
                                     // Reset all family branches within grandchildren to be visible
                                     grandchildren.querySelectorAll('.family-branch').forEach(b => {
                                         b.style.display = 'flex';
@@ -580,9 +550,17 @@
                                     // Animate grandchildren branches
                                     const grandBranches = grandchildren.querySelectorAll('.family-branch');
                                     animateElements(grandBranches, 100);
-                                    // Do not hide uncles here to keep the view of the grandfather
+                                    // Hide بلا
+                                    const balaMember = document.querySelector('.member[data-name="بلا"]');
+                                    if (balaMember) {
+                                        balaMember.style.display = 'none';
+                                    }
                                 } else {
-                                    showUncles(this);
+                                    // Show بلا back
+                                    const balaMember = document.querySelector('.member[data-name="بلا"]');
+                                    if (balaMember) {
+                                        balaMember.style.display = '';
+                                    }
                                 }
                             }, 200);
                         }
@@ -590,38 +568,25 @@
                         else if (name && (name.endsWith('-branch') || this.closest('.grandchildren'))) {
                             if (children) {
                                 this.classList.toggle('active');
-                                const willBeVisible = !children.classList.contains('visible');
-                                children.classList.toggle('visible');
                                 setTimeout(() => {
-                                    if (willBeVisible) {
-                                        hideUncles(this);
-                                    } else {
-                                        showUncles(this);
-                                    }
+                                    children.classList.toggle('visible');
                                 }, 150);
                             }
                         }
                         // For other members
                         else if (children) {
                             this.classList.toggle('active');
-                            const willBeVisible = !children.classList.contains('visible');
-                            children.classList.toggle('visible');
                             setTimeout(() => {
-                                if (willBeVisible) {
-                                    hideUncles(this);
-                                } else {
-                                    showUncles(this);
-                                }
+                                children.classList.toggle('visible');
                             }, 150);
                         }
                         else if (name === 'بلا') {
                             const grandchildren = document.getElementById('بلا-children');
                             this.classList.toggle('active');
-                            const willBeVisible = !grandchildren.classList.contains('visible');
-                            grandchildren.classList.toggle('visible');
 
                             setTimeout(() => {
-                                if (willBeVisible) {
+                                grandchildren.classList.toggle('visible');
+                                if (grandchildren.classList.contains('visible')) {
                                     // Reset all family branches within grandchildren to be visible
                                     grandchildren.querySelectorAll('.family-branch').forEach(b => {
                                         b.style.display = 'flex';
@@ -629,9 +594,17 @@
                                     // Animate grandchildren branches
                                     const grandBranches = grandchildren.querySelectorAll('.family-branch');
                                     animateElements(grandBranches, 100);
-                                    hideUncles(this);
+                                    // Hide محمد مولود
+                                    const mohammedMember = document.querySelector('.member[data-name="محمد-مولود"]');
+                                    if (mohammedMember) {
+                                        mohammedMember.style.display = 'none';
+                                    }
                                 } else {
-                                    showUncles(this);
+                                    // Show محمد مولود back
+                                    const mohammedMember = document.querySelector('.member[data-name="محمد-مولود"]');
+                                    if (mohammedMember) {
+                                        mohammedMember.style.display = '';
+                                    }
                                 }
                             }, 200);
                         }

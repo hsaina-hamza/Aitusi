@@ -1,7 +1,5 @@
-- [x] Add hideUncles and showUncles functions to the script in family-tree.html
-- [x] Modify the click handler for محمد مولود to use the general hideUncles and showUncles instead of specific hiding
-- [x] Modify the click handler for بلا to use the general hideUncles and showUncles
-- [x] Modify the general click handler for other members in grandchildren to include hide/show uncles logic
-- [x] Modify the general click handler for other members to include hide/show uncles logic
-- [x] Fix the bug where the member itself was hidden
-- [x] Verify the implementation works as expected
+- [ ] Add hideUncles and showUncles functions to the script in family-tree.html
+- [ ] Modify the click handler for محمد مولود to use the general hideUncles and showUncles instead of specific hiding
+- [ ] Modify the click handler for بلا to use the general hideUncles and showUncles
+- [ ] Modify the general click handler for other members in grandchildren to include hide/show uncles logic
+- [ ] Verify the implementation works as expected
